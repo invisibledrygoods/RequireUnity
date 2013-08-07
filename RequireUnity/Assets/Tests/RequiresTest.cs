@@ -3,7 +3,7 @@ using System.Collections;
 using Shouldly;
 using Require;
 
-public class RequireTest : TestBehaviour
+public class RequiresTest : TestBehaviour
 {
     Transform module;
     Transform sibling;
