@@ -7,7 +7,16 @@ namespace Require
     {
         public static T Require<T>(this Transform transform) where T : Component
         {
-            return transform.GetComponent<T>() ?? transform.gameObject.AddComponent<T>();
+            var component = transform.GetComponent<T>();
+
+            if (component == null)
+            {
+                return transform.gameObject.AddComponent<T>();
+            }
+            else
+            {
+                return component;
+            }
         }
 
         public static Transform GetModuleRoot(this Transform transform)
