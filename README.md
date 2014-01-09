@@ -26,22 +26,22 @@ How It Works
 
 #### transform.Require&lt;T : Component&gt;
 
-Require works similarly to ruby's require, it checks to see if the transform already has a component of the given class, and uses AddComponent to create one if it doesn't.
+`Require` works similarly to ruby's require, it checks to see if the transform already has a component of the given class, and uses `AddComponent` to create one if it doesn't.
 
 #### transform.GetModuleRoot
 
-GetModuleRoot searches up the scene heirarchy looking for a GameObject with a `ModuleRoot` component, returning a reference to its transform if found, and returning the calling transform if not found.
+`GetModuleRoot` searches up the scene heirarchy looking for a GameObject with a `ModuleRoot` component, returning a reference to its transform if found, and returning the calling transform if not found.
 
 #### transform.GetModuleRoot().Require&lt;T : Component&gt;
 
-By requiring on the module root instead of your own transform multiple child GameObjects can share their parents resource. This lets you centralize the data of a game entity but organize its control into child GameObjects.
+By requiring on the module root instead of your own transform multiple child GameObjects can share their parents resources. This lets you centralize the data of a game entity but organize its controls into child GameObjects.
 
 Use In Testing
 --------------
 
 Between instantiating a game object and requiring the component under test, there is a window of opportunity to inject mock components that extend the component under test's required resources. When require goes to look for the resources it will find the injected mock and never load the original resource.
 
-This is useful for cases where the original resource would modify global state and cause interference between tests, or where the original resource would access foreign data and potentially corrupt save files or database entries. By injecting a stateless mock you can isolate your tests from each other and the outside world.
+This is useful for cases where the original resource would modify global state and cause interference between tests, or where the original resource would access foreign data and potentially corrupt save files or database entries. By injecting a mock you can isolate your tests from each other and the outside world.
 
 #### It looks kind of like this
 
