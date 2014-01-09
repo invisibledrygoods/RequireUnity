@@ -1,7 +1,7 @@
 RequireUnity
 ============
 
-Modular design tools for unity.
+Modular design and resource injection in unity.
 
 Example
 -------
