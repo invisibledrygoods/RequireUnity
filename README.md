@@ -92,4 +92,4 @@ This is useful for cases where the original resource would modify global state a
 More Reading
 ------------
 
-The motivation behind Google Guice is the same as the motivation behind Require. There's also just a lot of good stuff in here: https://code.google.com/p/google-guice/wiki/Motivation
+The motivation behind Google Guice is the same as the motivation behind Require, there's also just a lot of good stuff in here: https://code.google.com/p/google-guice/wiki/Motivation
