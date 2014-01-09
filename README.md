@@ -1,7 +1,7 @@
 RequireUnity
 ============
 
-Modular design and resource injection in unity.
+Modular design and resource injection in unity. Unity got this _almost_ right, so this document is longer than the actual source code, treat it like a style guide.
 
 Example
 -------
