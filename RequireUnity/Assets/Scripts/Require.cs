@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 namespace Require
 {
@@ -35,6 +36,23 @@ namespace Require
 
             return transform;
         }
+
+		public static Transform GetModuleSuper(this Transform transform)
+		{
+			if (transform.parent == null)
+			{
+				throw new Exception("Trying to get module super for a module that has no super");
+			}
+
+			Transform super = transform.parent.GetModuleRoot();
+
+			if (super.GetComponent<ModuleRoot>() == null)
+			{
+				throw new Exception("Trying to get module super for a module that has no super");
+			}
+
+			return super;
+		}
 
         public static T[] GetComponentsInModule<T>(this Transform transform) where T : Component
         {
