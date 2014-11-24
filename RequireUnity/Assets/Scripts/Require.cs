@@ -4,7 +4,7 @@ using System;
 
 namespace Require
 {
-    public static class TransformExtension
+    public static class Require
     {
         public static T Require<T>(this Transform transform) where T : Component
         {
@@ -68,6 +68,29 @@ namespace Require
             }
 
             return components.ToArray();
+        }
+
+        public static Transform RequireTag(this Transform transform, string tag)
+        {
+            if (transform.tag == tag)
+            {
+                return transform;
+            }
+
+            return RequireTag(tag);
+        }
+
+        public static Transform RequireTag(string tag)
+        {
+            GameObject instance = GameObject.FindGameObjectWithTag(tag);
+
+            if (instance == null)
+            {
+                instance = new GameObject(tag);
+                instance.tag = tag;
+            }
+
+            return instance.transform;
         }
     }
 }
